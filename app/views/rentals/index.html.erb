@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XYZ Book Rental - Sign Up</title>
+  <%= stylesheet_link_tag 'style' %>
+  <style>
+    .rentals-container {
+      margin: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+
+<body class="pt-5"> 
+  <div class="rentals-container mt-5"> 
+    <h1>Rented Books</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Book</th>
+          <th>Due Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @rentals.each do |rental| %>
+          <% unless rental.returned %>
+            <tr>
+              <td><strong>User:</strong> <%= rental.user.firstname %></td>
+              <td><strong>Book:</strong> <%= link_to rental.book.title, rental_path(rental) %></td>
+              <td><strong>Due Date:</strong> <%= rental.due_date.strftime('%B %d, %Y') %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</body>
+
+</html>

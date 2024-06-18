@@ -1,0 +1,41 @@
+
+.margin-top-navbar {
+  margin-top: 70px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.25rem;
+}
+
+.card-text {
+  margin-bottom: 10px;
+}
+
+.btn-rent {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+
+.btn-rent:hover {
+  background-color: #0056b3;
+}
+
+/* Landscape styles */
+@media (min-width: 768px) {
+  .container-landscape {
+    max-width: 100%; /* Adjust the maximum width for landscape layout */
+    padding: 0; /* Remove padding for landscape layout */
+  }
+
+  .card {
+    width: 48%; /* Set the width of cards for landscape layout */
+    margin: 1%; /* Add margin between cards */
+  }
+}

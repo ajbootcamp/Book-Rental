@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XYZ Book Rental</title>
+  <%= stylesheet_link_tag 'style' %>
+</head>
+
+<body>
+  <div class="form-container">
+    <h1>Welcome to XYZ Book Rental!</h1>
+    <% if user_signed_in? %>
+      <p>Hello, <%= current_user.username %>! <br> Browse and rent books to enjoy your reading.</p>
+      <%= link_to 'Browse Books', books_path, class: 'btn btn-primary' %>
+    <% else %>
+      <p>Sign in or sign up to start renting books and enjoying our services!</p>
+      <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary' %>
+      <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-success' %>
+    <% end %>
+    <div class="featured-books mt-5">
+      <h2>Featured Books</h2>
+    </div>
+  </div>
+</body>
+</html>

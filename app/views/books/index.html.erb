@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XYZ Book Rental - Sign Up</title>
+  <%= stylesheet_link_tag 'book' %>
+</head>
+
+<body>
+<div class="container mt-5 margin-top-navbar">
+  <h1 class="mb-4">Book List</h1>
+  <%= paginate @books %>
+
+  <div class="row">
+    <% @books.each do |book| %>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title"><%= link_to book.title, book, class: 'text-decoration-none text-dark' %></h2>
+            <p class="card-text"><strong>Author:</strong> <%= book.author %></p>
+            <p class="card-text"><strong>Status:</strong> <%= book.available_quantity.present? && book.available_quantity.positive? ? 'Available' : 'Not Available' %></p>
+            <p class="card-text"><strong>Price:</strong> <%= book.price %></p>
+
+            <% if user_signed_in? && !current_user.admin? && book.available_quantity.present? && book.available_quantity.positive? %>
+            <%= link_to 'Rent', rent_book_path(book), method: :post, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-sm' %>
+            <% end %>
+
+            <% if user_signed_in? && current_user.admin? %>
+              <%= link_to 'Edit', edit_book_path(book), class: 'btn btn-warning btn-sm' %>
+              <%= link_to 'Delete', book, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+</body>
+
+</html>

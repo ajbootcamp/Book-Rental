@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XYZ Book Rental - Sign Up</title>
+  <%= stylesheet_link_tag 'style' %>
+  <style>
+    .new-book-container {
+      margin: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .returned {
+      background-color: #e0e0e0;
+    }
+
+    .delete-button {
+      background-color: #ff6666;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="new-book-container">
+    <h1>Rented Books</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Book</th>
+          <th>Due Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @rentals.each do |rental| %>
+          <tr <%= 'class="returned"' if rental.returned? %>>
+            <td><strong> <%= rental.user.firstname %></strong></td>
+            <td><strong> <%= rental.book.title %></strong></td>
+            <td><strong> <%= rental.due_date.strftime('%B %d, %Y') %></strong> </td>
+            <td><strong> <%= rental.returned? ? 'Returned' : '' %></strong></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</body>
+
+</html>

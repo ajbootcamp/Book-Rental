@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joy² Book Rental - Sign Up</title>
+  <%= stylesheet_link_tag 'style' %>
+</head>
+
+<body>
+  <div class="form-container">
+    <h2>Sign up</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="row">
+        <div class="col-md-6">
+          <!-- Left side of the form -->
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control form-control-lg' %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password", class: 'form-control form-control-lg' %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control form-control-lg' %>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <!-- Right side of the form -->
+          <div class="field">
+            <%= f.label :firstname %><br />
+            <%= f.text_field :firstname, class: 'form-control form-control-lg' %>
+          </div>
+
+          <div class="field">
+            <%= f.label :middlename %><br />
+            <%= f.text_field :middlename, class: 'form-control form-control-lg' %>
+          </div>
+
+          <div class="field">
+            <%= f.label :lastname %><br />
+            <%= f.text_field :lastname, class: 'form-control form-control-lg' %>
+          </div>
+
+          <div class="field">
+            <%= f.label :age %><br />
+            <%= f.number_field :age, class: 'form-control form-control-lg' %>
+          </div>
+
+          <div class="field">
+            <%= f.label :phonenumber %><br />
+            <%= f.number_field :phonenumber, class: 'form-control form-control-lg' %>
+          </div>
+
+          <div class="field">
+            <%= f.label :gender %><br />
+            <%= f.select :gender, ['Male', 'Female', 'Other'], {}, class: 'form-control form-control-lg' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up", class: 'btn btn-primary btn-lg' %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+/* custom_styles.css */
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  width: 300px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* app/assets/stylesheets/custom.css */
+
+/* Adjust form field size */
+.form-container {
+  max-width: 800px; /* Adjusted max-width for a wider form */
+  margin: 50px auto;
+  padding: 30px; /* Increased padding for more spacing */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Adjust form field size */
+.form-control-lg {
+  height: calc(2.5rem + 10px); /* Increased height for form fields */
+  padding: 0.5rem 1rem; /* Increased padding for form fields */
+  font-size: 1.1rem; /* Increased font size for form fields */
+}
+
+/* Adjust submit button size */
+.btn-lg {
+  padding: 0.6rem 1.2rem; /* Increased padding for the submit button */
+  font-size: 1.1rem; /* Increased font size for the submit button */
+}
+
+h1 {
+  color: #007bff; /* Blue Text */
+}
+
+p {
+  font-size: 18px;
+  color: #495057; /* Dark Gray Text */
+}
+
+.btn-primary {
+  background-color: #007bff; /* Blue Button */
+  color: #fff; /* White Text */
+  margin-top: 10px;
+}
+
+.btn-success {
+  background-color: #28a745; /* Green Button */
+  color: #fff; /* White Text */
+  margin-top: 10px;
+}
+
+.featured-books {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fff; /* White Background */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.featured-books h2 {
+  color: #007bff; /* Blue Text */
+}
+
+.new-book-container {
+  max-width: 800px; /* Adjusted max-width for a wider form */
+  margin: 50px auto;
+  padding: 30px; /* Increased padding for more spacing */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+nav {
+  z-index: 1000; /* You can adjust the value based on your layout */
+}

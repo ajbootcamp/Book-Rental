@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XYZ Book Rental - Sign Up</title>
+  <%= stylesheet_link_tag 'style' %>
+</head>
+
+<body>
+  <div class="new-book-container">
+<h1>Rental Details</h1>
+
+<h2>Book: <%= link_to @rental.book.title, @rental.book %></h2>
+<p><strong>Due Date:</strong> <%= @rental.due_date %></p>
+
+<% unless @rental.returned %>
+  <%= link_to 'Return', return_rental_path(@rental), method: :put, data: { confirm: 'Are you sure?' }, class: 'btn btn-success' %>
+<% end %>
+  </div>
+</body>
+
+</html>
